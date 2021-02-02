@@ -6,7 +6,7 @@ import styles from "../../styles/Feed.module.css";
 export const Feed = ({ pageNumber, articles }) => {
   const router = useRouter();
 
-  return (
+  return articles && articles.length ? (
     <div className="page-container">
       <Toolbar />
       <div className={styles.main}>
@@ -49,6 +49,13 @@ export const Feed = ({ pageNumber, articles }) => {
         >
           Next page
         </div>
+      </div>
+    </div>
+  ) : (
+    <div className="page-container">
+      <Toolbar />
+      <div className={styles.main}>
+        <h1>Oops! No articles for this page</h1>
       </div>
     </div>
   );

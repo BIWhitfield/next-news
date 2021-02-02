@@ -1,9 +1,9 @@
+import Image from 'next/image'
 import Toolbar from "../components/toolbar";
 
 import styles from "../styles/EOM.module.css";
 
-export const EOM = ({ employee }) => {
-  const { name, position, image, description } = employee;
+export const EOM = () => {
   return (
     <div className="page-container">
       <Toolbar />
@@ -11,28 +11,15 @@ export const EOM = ({ employee }) => {
         <h1>Employee of the month</h1>
 
         <div className={styles.employeeOfTheMonth}>
-          <h3>{name}</h3>
-          <h6>{position}</h6>
-          <img src={image} />
-          <p>{description}</p>
+          <h3>Ben</h3>
+          <h6>Software Developer</h6>
+          <Image className={styles.image} width={250} height={250} src='/images/Profile-Pic.jpg' />
+          <p>Trying our NextJS</p>
         </div>
       </div>
     </div>
   );
 };
 
-export const getServerSideProps = async (pageContext) => {
-  const apiResponse = await fetch(
-    "https://my-json-server.typicode.com/portexe/next-news/employeeOfTheMonth"
-  );
-
-  const employee = await apiResponse.json();
-
-  return {
-    props: {
-      employee,
-    },
-  };
-};
 
 export default EOM;

@@ -4,7 +4,6 @@ import Toolbar from "../components/toolbar";
 import styles from "../styles/EOM.module.css";
 
 export const EOM = () => {
-  const { name, position, image, description } = employee;
   return (
     <div className="page-container">
       <Toolbar />
